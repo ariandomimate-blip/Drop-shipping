@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: dropshift-store
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: MARKUP_PERCENT
+        value: 100
