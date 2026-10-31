@@ -1,0 +1,15 @@
+import express from "express";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import dotenv from "dotenv";
+import { loadCatalog } from "./src/catalog.js";
+dotenv.config();
+const app=express(), port=process.env.PORT||3000;
+const root=path.dirname(fileURLToPath(import.meta.url));
+app.use(express.json({limit:"1mb"}));
+app.use(express.static(path.join(root,"public")));
+app.get("/api/health",(_req,res)=>res.json({ok:true,markup:process.env.MARKUP_PERCENT||100}));
+app.get("/api/products",async(req,res)=>{try{const items=await loadCatalog();const q=String(req.query.q||"").toLowerCase();res.json(items.filter(p=>!q||[p.title,p.category,p.description].join(" ").toLowerCase().includes(q)));}catch(e){console.error(e);res.status(500).json({error:"Catalog unavailable"});}});
+app.post("/api/orders/checkout",(_req,res)=>res.status(501).json({error:"Checkout is not enabled yet. Configure a payment provider and supplier order API before accepting payments."}));
+app.get("*",(_req,res)=>res.sendFile(path.join(root,"public","index.html")));
+app.listen(port,()=>console.log("Storefront listening on",port));
