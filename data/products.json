@@ -1,0 +1,35 @@
+[
+  {
+    "id": "sample-001",
+    "provider": "demo",
+    "title": "Minimalist Everyday Backpack",
+    "cost": 24.5,
+    "currency": "EUR",
+    "category": "Accessoires",
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
+    "description": "Clean everyday carry with a practical, modern silhouette.",
+    "stock": 25
+  },
+  {
+    "id": "sample-002",
+    "provider": "demo",
+    "title": "Studio Wireless Headphones",
+    "cost": 32,
+    "currency": "EUR",
+    "category": "Elektronik",
+    "image": "https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?auto=format&fit=crop&w=900&q=80",
+    "description": "A simple audio essential for work, travel and downtime.",
+    "stock": 18
+  },
+  {
+    "id": "sample-003",
+    "provider": "demo",
+    "title": "Modern Ceramic Table Lamp",
+    "cost": 19.9,
+    "currency": "EUR",
+    "category": "Wohnen",
+    "image": "https://images.unsplash.com/photo-150 lev?x",
+    "description": "Soft ambient lighting for a calm, contemporary room.",
+    "stock": 12
+  }
+]
